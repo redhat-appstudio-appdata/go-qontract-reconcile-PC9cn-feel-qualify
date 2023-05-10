@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: go-qontract-reconcile
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: go-qontract-reconcile
+    app.kubernetes.io/part-of: go-qontract-reconcile
+  name: go-qontract-reconcile
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: go-qontract-reconcile
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: go-qontract-reconcile
+    spec:
+      containers:
+      - image: image
+        imagePullPolicy: Always
+        name: container-image
+        ports:
+        - containerPort: 9090
+        resources:
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
